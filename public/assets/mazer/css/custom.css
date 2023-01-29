@@ -1,0 +1,33 @@
+/* GENERAL */
+/* Custom Color */
+.text-gray-1 {
+    color: #ababab !important;
+}
+
+.bg-danger-soft {
+    border-style: solid;
+    border-color: #ffbaba58;
+}
+
+/* End of Custom Color */
+
+
+.text-space-1 {
+    letter-spacing: 0.5px;
+}
+
+.text-space-2 {
+    letter-spacing: 1px;
+}
+
+.text-space-3 {
+    letter-spacing: 1.5px;
+}
+
+.btn {
+    border-radius: 0.50rem !important;
+    font-weight: 600;
+    letter-spacing: 0.3px;
+}
+
+/* END OF GENERAL */
