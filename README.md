@@ -41,7 +41,7 @@ Mazer App is Laravel Example Project for Newbie Programmer! We made simple, easy
 
 ## Contribution Guidelines
 
-If you have ideas or would like to improve this App in some way, please feel free to contact me! [Contact](https://rahmatrdn.github.io/)
+If you have ideas or would like to improve this App in some way, please feel free to [Contact Me!](https://rahmatrdn.github.io/)
 
 ## Resource
 

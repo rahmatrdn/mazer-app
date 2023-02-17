@@ -51,14 +51,13 @@ class AuthController extends Controller
         $data = $request->all();
 
         $data['password'] = bcrypt($data['password']);
-        $data['level'] = "MEMBER";
+        $data['access_type'] = "MEMBER";
 
         DB::table("users")->insert([
             'name' => $data['name'],
             'email' => $data['email'],
             'password' => $data['password'],
         ]);
-
         
         return redirect("/")->withSuccess("Pendaftaran berhasil!");
     }
@@ -67,7 +66,7 @@ class AuthController extends Controller
     {
         Auth::logout();
 
-        return redirect("login");
+        return redirect("/");
     }
 
 }

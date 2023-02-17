@@ -20,6 +20,7 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', [HomeController::class, 'index']);
 
 Route::get('login', [AuthController::class, 'index'])->name("login");
+Route::get('register', [AuthController::class, 'register'])->name("register");
 
 Route::group(['prefix' => 'auth/'], function () {
     Route::post('do-login', [AuthController::class, 'doLogin']);

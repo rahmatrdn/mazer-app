@@ -18,7 +18,7 @@
         <div id="main" class="layout-horizontal">
             <header class="mb-5">
                 <nav class="navbar navbar-expand-lg bg-body-tertiary bg-white fixed-top">
-                    <div class="container-fluid">
+                    <div class="container">
                         <a class="navbar-brand" href="#">
                             <b>MazerApp</b>
                         </a>
@@ -28,44 +28,48 @@
                             <span class="navbar-toggler-icon"></span>
                         </button>
                         <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                                <li class="nav-item">
-                                    <a class="nav-link active" aria-current="page" href="#">Home</a>
+                            <ul class="navbar-nav me-auto mb-2 mb-lg-0 ms-5">
+                                <li class="nav-item me-0 me-md-2">
+                                    <a class="nav-link active" aria-current="page" href="#">Beranda</a>
                                 </li>
-                                <li class="nav-item">
-                                    <a class="nav-link" href="#">Menu 1</a>
+                                <li class="nav-item me-0 me-md-2">
+                                    <a class="nav-link" href="#">Kategori</a>
                                 </li>
-                                <li class="nav-item">
-                                    <a class="nav-link" href="#">Menu 2</a>
+                                <li class="nav-item me-0 me-md-2">
+                                    <a class="nav-link" href="#">Tentang Kami</a>
                                 </li>
                             </ul>
-                            
-                            <div class="dropdown">
-                                <a href="#" id="topbarUserDropdown"
-                                    class="user-dropdown d-flex align-items-center dropend dropdown-toggle"
-                                    data-bs-toggle="dropdown" aria-expanded="false">
-                                    <div class="avatar avatar-md2">
-                                        <img src="{{ asset("assets/mazer") }}/images/faces/2.jpg" alt="Avatar" />
-                                    </div>
-                                    <div class="text">
-                                        <h6 class="user-dropdown-name">Rahmat Ramadhan</h6>
-                                        <p class="user-dropdown-status text-sm text-muted">
-                                            Member
-                                        </p>
-                                    </div>
-                                </a>
-                                <ul class="dropdown-menu dropdown-menu-end shadow-lg"
-                                    aria-labelledby="topbarUserDropdown">
-                                    <li><a class="dropdown-item" href="#">My Account</a></li>
-                                    <li><a class="dropdown-item" href="#">Settings</a></li>
-                                    <li>
-                                        <hr class="dropdown-divider" />
-                                    </li>
-                                    <li>
-                                        <a class="dropdown-item" href="auth-login.html">Logout</a>
-                                    </li>
-                                </ul>
-                            </div>
+
+                            @if (Auth::check())
+                                {{-- INFO AKUN --}}
+                                <div class="dropdown">
+                                    <a href="#" id="topbarUserDropdown"
+                                        class="user-dropdown d-flex align-items-center dropend dropdown-toggle"
+                                        data-bs-toggle="dropdown" aria-expanded="false">
+                                        <div class="avatar avatar-md2">
+                                            <img src="{{ asset('assets/mazer') }}/images/user.png" alt="Avatar" />
+                                        </div>
+                                        <div class="text">
+                                            <h6 class="user-dropdown-name">{{ Auth::user()->name }}</h6>
+                                            <p class="user-dropdown-status text-sm text-muted">
+                                                Member
+                                            </p>
+                                        </div>
+                                    </a>
+                                    <ul class="dropdown-menu dropdown-menu-end shadow-lg"
+                                        aria-labelledby="topbarUserDropdown">
+                                        <li>
+                                            <a class="dropdown-item" href="{{ url('auth/logout') }}">Logout</a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            @else
+                                <div>
+                                    <a href="{{ url('/login') }}" class="btn btn-primary me-1">Login</a>
+                                    <a href="{{ url('/register') }}" class="btn btn-outline-primary">Daftar Akun</a>
+                                </div>
+                            @endif
+
                         </div>
                     </div>
                 </nav>
@@ -84,7 +88,7 @@
                         <div class="float-end">
                             <p>
                                 App by <a href="https://rahmatrdn.github.io">Rahmat Ramadhan</a> |
-                                
+
                                 Template by <a href="https://saugi.me">Saugi</a>
                             </p>
                         </div>
